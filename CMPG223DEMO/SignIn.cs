@@ -25,18 +25,26 @@ namespace CMPG223DEMO
 
         private void update_Click(object sender, EventArgs e)
         {
-            patient.emailNeededToUpdate = emailNeededToUpdate.Text;
-            patient.firstName = firstNameButton.Text;
-            patient.lastName = lastNameButton.Text;
-            patient.contactNumber = contactNumberButton.Text;
-            patient.email = emailButtom.Text;
-            patient.age = ageButton.Text;
-            if(patient.update() ==0)
+            if(patient.isValidEmail(emailNeededToUpdate.Text) == false)
             {
-                this.Close();
-                
+                patient.emailNeededToUpdate = emailNeededToUpdate.Text;
+                patient.firstName = firstNameButton.Text;
+                patient.lastName = lastNameButton.Text;
+                patient.contactNumber = contactNumberButton.Text;
+                patient.email = emailButtom.Text;
+                patient.age = ageButton.Text;
+                if (patient.update() == 0)
+                {
+                    this.Close();
+
+                }
+
             }
-           
+            else if (patient.isValidEmail(emailNeededToUpdate.Text) == true)
+            {
+                MessageBox.Show("Email does not exist in our database");
+            }
+
         }
     }
 }

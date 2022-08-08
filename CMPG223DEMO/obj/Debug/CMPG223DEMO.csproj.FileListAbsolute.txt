@@ -33,3 +33,5 @@ C:\Users\ngwen\source\repos\CMPG223DEMO\CMPG223DEMO\obj\Debug\CMPG223DEMO.exe
 C:\Users\ngwen\source\repos\CMPG223DEMO\CMPG223DEMO\obj\Debug\CMPG223DEMO.pdb
 C:\Users\ngwen\source\repos\CMPG223DEMO\CMPG223DEMO\obj\Debug\CMPG223DEMO.SignUpForm.resources
 C:\Users\ngwen\source\repos\CMPG223DEMO\CMPG223DEMO\obj\Debug\CMPG223DEMO.updateSignIn.resources
+C:\Users\ngwen\source\repos\CMPG223DEMO\CMPG223DEMO\obj\Debug\CMPG223DEMO.SignUpPhysician.resources
+C:\Users\ngwen\source\repos\CMPG223DEMO\CMPG223DEMO\obj\Debug\CMPG223DEMO.updatePhysician.resources

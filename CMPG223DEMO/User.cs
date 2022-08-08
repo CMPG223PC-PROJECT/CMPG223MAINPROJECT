@@ -40,24 +40,7 @@ namespace CMPG223DEMO
             return new Regex(validEmailPattern, RegexOptions.IgnoreCase);
         }
 
-        public bool isValidEmail()
-        {
-            con = new MySqlConnection(connection);
-            con.Open();
-            cmd = new MySqlCommand("SELECT email FROM Patient", con);
-            readData = cmd.ExecuteReader();     // Here our query will be executed and data saved into the database.
-            while (readData.Read())
-            {
-                if (readData[0].ToString() == email)
-                {
-                    return false; //if the email alreay exist then it is not a valid email to be used
-                }
-            }
-
-            con.Close();
-            return true; //default bool value
-        }
-
+       
         public string isvalid()
         {
             string massage = "";
@@ -94,10 +77,6 @@ namespace CMPG223DEMO
                 massage = "email address must be valid email address format.\n" +
                        "For example 'someone@example.com' ";
                
-            }
-            else if (isValidEmail() == false)
-            {
-                massage = "email already exist in our database, try using a different email";
             }
 
             return massage;

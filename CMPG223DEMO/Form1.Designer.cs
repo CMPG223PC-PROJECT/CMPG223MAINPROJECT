@@ -51,6 +51,7 @@ namespace CMPG223DEMO
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.emailView = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.PhysicianF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +61,7 @@ namespace CMPG223DEMO
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Sienna;
-            this.label6.Location = new System.Drawing.Point(260, 21);
+            this.label6.Location = new System.Drawing.Point(81, 20);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(358, 32);
             this.label6.TabIndex = 25;
@@ -244,12 +245,23 @@ namespace CMPG223DEMO
             this.label8.TabIndex = 35;
             this.label8.Text = "enter email to view all details";
             // 
+            // PhysicianF
+            // 
+            this.PhysicianF.Location = new System.Drawing.Point(16, 474);
+            this.PhysicianF.Name = "PhysicianF";
+            this.PhysicianF.Size = new System.Drawing.Size(358, 37);
+            this.PhysicianF.TabIndex = 36;
+            this.PhysicianF.Text = "Go to Physician Form";
+            this.PhysicianF.UseVisualStyleBackColor = true;
+            this.PhysicianF.Click += new System.EventHandler(this.PhysicianF_Click);
+            // 
             // SignUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(905, 761);
+            this.Controls.Add(this.PhysicianF);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.emailView);
             this.Controls.Add(this.delete);
@@ -304,6 +316,7 @@ namespace CMPG223DEMO
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox emailView;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button PhysicianF;
     }
 }
 
