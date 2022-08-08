@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32630.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMPG223DEMO", "CMPG223DEMO\CMPG223DEMO.csproj", "{C4A7EB6B-7B28-4A15-BAE2-403C8F17AE7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4A7EB6B-7B28-4A15-BAE2-403C8F17AE7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A7EB6B-7B28-4A15-BAE2-403C8F17AE7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4A7EB6B-7B28-4A15-BAE2-403C8F17AE7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4A7EB6B-7B28-4A15-BAE2-403C8F17AE7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19B82FA4-DC25-4BB9-B061-3E0E979C469A}
+	EndGlobalSection
+EndGlobal
