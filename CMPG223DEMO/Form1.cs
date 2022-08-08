@@ -43,7 +43,7 @@ namespace CMPG223DEMO
             patient.email = emailView.Text;
             if (patient.email == "" || patient.email ==null)
             {
-                MessageBox.Show("please enter valid email");
+                MessageBox.Show("please enter a valid email address");
             }
             else
             {
@@ -77,7 +77,7 @@ namespace CMPG223DEMO
         {
             patient.email = emailView.Text;
             
-            if(patient.isValidEmail() == false)
+            if(patient.isValidEmail(emailView.Text) == false)
             {
                 patient.delete();
                 this.Close();
@@ -95,7 +95,7 @@ namespace CMPG223DEMO
         {
             patient.email = emailView.Text;
            
-            if (patient.isValidEmail() == false)
+            if (patient.isValidEmail(emailView.Text) == false)
             {
                 updateSignIn update = new updateSignIn();
                 update.ShowDialog();
@@ -107,6 +107,15 @@ namespace CMPG223DEMO
                 MessageBox.Show("email does not exist in our database");
             }
 
+        }
+
+        private void PhysicianF_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SignUpPhysician rd = new SignUpPhysician();
+            rd.ShowDialog();
+            
+           
         }
     }
 }
