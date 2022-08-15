@@ -115,5 +115,24 @@ namespace CMPG223DEMO
 
         }
 
+        public int physicianID(string firstNameOfPhysician)
+        {
+            int idOfPhysician = -1;
+            con = new MySqlConnection(connection);
+            con.Open();
+
+            cmd = new MySqlCommand("SELECT * FROM Physician WHERE firstName='" + firstNameOfPhysician + "'", con);
+            readData = cmd.ExecuteReader();
+            while (readData.Read())
+            {
+                idOfPhysician = int.Parse(readData.GetValue(0).ToString()); //loop through the values in the uniform_cart cart and save it
+
+            }
+            con.Close();
+            return idOfPhysician;
+
+        }
+
+
     }
 }

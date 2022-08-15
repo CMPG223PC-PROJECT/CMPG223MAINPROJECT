@@ -51,6 +51,7 @@ namespace CMPG223DEMO
             this.lastNameButton = new System.Windows.Forms.TextBox();
             this.firstNameButton = new System.Windows.Forms.TextBox();
             this.SignUp = new System.Windows.Forms.Button();
+            this.PatientF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -244,12 +245,23 @@ namespace CMPG223DEMO
             this.SignUp.UseVisualStyleBackColor = false;
             this.SignUp.Click += new System.EventHandler(this.SignUp_Click);
             // 
+            // PatientF
+            // 
+            this.PatientF.Location = new System.Drawing.Point(12, 505);
+            this.PatientF.Name = "PatientF";
+            this.PatientF.Size = new System.Drawing.Size(358, 37);
+            this.PatientF.TabIndex = 57;
+            this.PatientF.Text = "Go to Patient Form";
+            this.PatientF.UseVisualStyleBackColor = true;
+            this.PatientF.Click += new System.EventHandler(this.PatientF_Click);
+            // 
             // SignUpPhysician
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(905, 761);
+            this.ClientSize = new System.Drawing.Size(905, 734);
+            this.Controls.Add(this.PatientF);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.emailView);
             this.Controls.Add(this.delete);
@@ -271,7 +283,10 @@ namespace CMPG223DEMO
             this.Controls.Add(this.lastNameButton);
             this.Controls.Add(this.firstNameButton);
             this.Controls.Add(this.SignUp);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "SignUpPhysician";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SignUpPhysician";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -303,5 +318,6 @@ namespace CMPG223DEMO
         private System.Windows.Forms.TextBox lastNameButton;
         private System.Windows.Forms.TextBox firstNameButton;
         private System.Windows.Forms.Button SignUp;
+        private System.Windows.Forms.Button PatientF;
     }
 }

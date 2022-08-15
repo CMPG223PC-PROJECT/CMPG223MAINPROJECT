@@ -90,5 +90,12 @@ namespace CMPG223DEMO
                 MessageBox.Show("email does not exist in our database");
             }
         }
+
+        private void PatientF_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SignUpForm signUpForm = new SignUpForm();
+            signUpForm.ShowDialog();
+        }
     }
 }

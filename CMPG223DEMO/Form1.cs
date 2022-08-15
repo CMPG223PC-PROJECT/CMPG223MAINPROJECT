@@ -77,10 +77,10 @@ namespace CMPG223DEMO
         {
             patient.email = emailView.Text;
             
-            if(patient.isValidEmail(emailView.Text) == false)
+           
+             if (isThereAppointment(emailView.Text) == true)
             {
-                patient.delete();
-                this.Close();
+                MessageBox.Show("asdfgdewdgrewdf");
             }
             else
             {
@@ -89,6 +89,23 @@ namespace CMPG223DEMO
             
             
 
+        }
+        public bool isThereAppointment(string email)
+        {
+            patient.con = new MySqlConnection(patient.connection);
+            patient.con.Open();
+            patient.cmd = new MySqlCommand("SELECT patientID FROM Appointment", patient.con);
+            patient.readData = patient.cmd.ExecuteReader();     // Here our query will be executed and data saved into the database.
+            while (patient.readData.Read())
+            {
+                if (patient.readData[0].ToString() == patient.patientID(email).ToString())
+                {
+                    return true; //if the email alreay exist then it is not a valid email to be used
+                }
+            }
+
+            patient.con.Close();
+            return false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -116,6 +133,13 @@ namespace CMPG223DEMO
             rd.ShowDialog();
             
            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Appoitment appoitment = new Appoitment();
+            appoitment.ShowDialog();
         }
     }
 }
