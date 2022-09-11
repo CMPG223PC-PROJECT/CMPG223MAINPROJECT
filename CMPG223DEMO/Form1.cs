@@ -72,42 +72,30 @@ namespace CMPG223DEMO
         {
             viewDetails();
         }
+      
 
         private void delete_Click(object sender, EventArgs e)
         {
             patient.email = emailView.Text;
-            
-           
-             if (isThereAppointment(emailView.Text) == true)
-            {
-                MessageBox.Show("asdfgdewdgrewdf");
-            }
-            else
+
+            if (patient.patientID() == -1)
             {
                 MessageBox.Show("email does not exist in our database");
             }
-            
-            
-
-        }
-        public bool isThereAppointment(string email)
-        {
-            patient.con = new MySqlConnection(patient.connection);
-            patient.con.Open();
-            patient.cmd = new MySqlCommand("SELECT patientID FROM Appointment", patient.con);
-            patient.readData = patient.cmd.ExecuteReader();     // Here our query will be executed and data saved into the database.
-            while (patient.readData.Read())
+            else if (patient.rfi() !="")
             {
-                if (patient.readData[0].ToString() == patient.patientID(email).ToString())
-                {
-                    return true; //if the email alreay exist then it is not a valid email to be used
-                }
+                MessageBox.Show(patient.rfi());
             }
+            else
+            {
+                patient.delete();
+               
+            }
+            
+            
 
-            patient.con.Close();
-            return false;
         }
-
+      
         private void button2_Click(object sender, EventArgs e)
         {
             patient.email = emailView.Text;
@@ -140,6 +128,13 @@ namespace CMPG223DEMO
             this.Hide();
             Appoitment appoitment = new Appoitment();
             appoitment.ShowDialog();
+        }
+
+        private void redirectFeedBack_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            feedback feedback = new feedback();
+            feedback.ShowDialog();
         }
     }
 }

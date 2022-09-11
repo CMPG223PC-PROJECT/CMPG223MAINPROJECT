@@ -24,14 +24,6 @@ namespace CMPG223DEMO
         public Patient patient = new Patient();
         public Physician Physician = new Physician();
         
-        public string connection = "server=localhost;user id=root;password=Bhek!!522;database=cmpg223";
-        public MySqlConnection con;
-        public MySqlCommand cmd;
-        public MySqlDataReader readData;
-        public DataTable table;
-        public MySqlDataAdapter adapter;
-        public DataSet ds;
-
         private void Appoitment_Load(object sender, EventArgs e)
         {
             DateTime dateTime = DateTime.Now;
@@ -40,7 +32,7 @@ namespace CMPG223DEMO
 
             Physician.con = new MySqlConnection(Physician.connection);
             Physician.con.Open();
-            Physician.cmd = new MySqlCommand("SELECT firstName FROM Physician", Physician.con);
+            Physician.cmd = new MySqlCommand("SELECT firstName FROM Physician ORDER BY firstName ASC", Physician.con);
             Physician.readData = Physician.cmd.ExecuteReader();
             Physician.table = new DataTable();
             Physician.table.Columns.Add("firstName", typeof(string));
@@ -56,9 +48,9 @@ namespace CMPG223DEMO
         
         private void insert_Click(object sender, EventArgs e)
         {
-           
+            patient.email = emailTocheck.Text;
             Physician.physicianID(comboBox1.Text);
-            patient.patientID(emailTocheck.Text);
+            int id = patient.patientID();
             if (timee.Text == "")
             {
                 MessageBox.Show("Please enter valid time");
@@ -80,27 +72,28 @@ namespace CMPG223DEMO
          
             else
             {
-                con = new MySqlConnection(connection);
-                con.Open();
-                cmd = new MySqlCommand("INSERT INTO  Appointment (physicianID, patientID, date, time, descr) VALUES('" + Physician.physicianID(comboBox1.Text) + "', '" + patient.patientID(emailTocheck.Text) + "', '" + dayy.Text + "', '" + timee.Text + "', '"+descr.Text+"')", con);
+                patient.con = new MySqlConnection(patient.connection);
+                patient.con.Open();
+                patient.cmd = new MySqlCommand("INSERT INTO  Appointment (physicianID, patientID, date, time, descr) VALUES('" + Physician.physicianID(comboBox1.Text) + "', '" + id + "', '" + dayy.Text + "', '" + timee.Text + "', '"+descr.Text+"')", patient.con);
                 //tient.readData =patient.cmd.ExecuteReader();
-                
-                readData = cmd.ExecuteReader();
+
+                patient.readData = patient.cmd.ExecuteReader();
                 MessageBox.Show("Data has been saved successfully");
-                while (readData.Read())
+                while (patient.readData.Read())
                 {
                 }
 
-                con.Close();
-                MessageBox.Show("Please choose any Physician");
+                patient.con.Close();
+                
                 
             }
         }
 
-        public string checkEmailAppointment()
+        public string checkEmailAppointment() // this method checks if there exist an appointment made by the Patient
         {
             string check = "";
-            patient.patientID(emailView.Text);
+            patient.email = emailView.Text;
+            int id = patient.patientID();
             patient.email = emailView.Text;
             if (patient.email == "" || patient.email == null)
             {
@@ -111,7 +104,7 @@ namespace CMPG223DEMO
                 patient.con = new MySqlConnection(patient.connection);
                 patient.con.Open();
                 patient.table = new DataTable();
-                patient.adapter = new MySqlDataAdapter("SELECT date, time, descr FROM Appointment WHERE patientID='" + patient.patientID(emailView.Text) + "'", patient.con);
+                patient.adapter = new MySqlDataAdapter("SELECT date, time, descr FROM Appointment WHERE patientID='" + id + "'", patient.con);
                 patient.adapter.Fill(patient.table);
                 dataGridView1.DataSource = patient.table;
                 //MessageBox.Show("Save Data");
@@ -130,7 +123,8 @@ namespace CMPG223DEMO
 
         private void button1_Click(object sender, EventArgs e)
         {
-            patient.patientID(emailView.Text);
+            patient.email = emailView.Text;
+            int id = patient.patientID();
             if (checkEmailAppointment() != "")
             {
                 MessageBox.Show(checkEmailAppointment());
@@ -144,21 +138,29 @@ namespace CMPG223DEMO
 
         private void delete_Click(object sender, EventArgs e)
         {
+            patient.email = emailView.Text;
+            int id = patient.patientID();
             if (checkEmailAppointment() != "")
             {
                 MessageBox.Show(checkEmailAppointment());
             }
+            else if (patient.isTherePatientRecord() == true) //
+            {
+                MessageBox.Show("Please delete the Patient_Record field associated to this AppointmentID");
+                
+            }
             else
             {
-                con = new MySqlConnection(connection);
-                con.Open();
-                cmd = new MySqlCommand("DELETE FROM Appointment WHERE patientID='" + patient.patientID(emailView.Text) + "'", con);
-                cmd.ExecuteNonQuery();
+                patient.con = new MySqlConnection(patient.connection);
+                patient.con.Open();
+                patient.cmd = new MySqlCommand("DELETE FROM Appointment WHERE patientID='" + id + "'", patient.con);
+                patient.cmd.ExecuteNonQuery();
                 MessageBox.Show("data has been deleted successfully");
-                con.Close();
+                patient.con.Close();
                 this.Hide();
                 SignUpForm signUpForm = new SignUpForm();
                 signUpForm.ShowDialog();
+
             }
         }
 

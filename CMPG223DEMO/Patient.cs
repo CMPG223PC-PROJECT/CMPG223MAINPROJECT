@@ -19,7 +19,7 @@ namespace CMPG223DEMO
     {
         public string age { set; get; }
 
-        public bool isValidEmail(string email22)
+        public bool isValidEmail(string email22) //his methodis used to check if the email already exist in the database 
         {
             con = new MySqlConnection(connection);
             con.Open();
@@ -37,69 +37,86 @@ namespace CMPG223DEMO
             return true; //default bool value
         }
 
-        public int patientID(string emailOfPatient)
+        public int patientID() //this method is used to get the patientID from the given email address
         {
             int idOfPatient = -1;
             con = new MySqlConnection(connection);
             con.Open();
-            cmd = new MySqlCommand("SELECT * FROM Patient WHERE email='" + emailOfPatient + "'", con);
+            cmd = new MySqlCommand("SELECT * FROM Patient WHERE email='" + email + "'", con);
             readData = cmd.ExecuteReader();
             while (readData.Read())
             {
-                idOfPatient = int.Parse(readData.GetValue(0).ToString()); //loop through the values in the uniform_cart cart and save it
+                idOfPatient = int.Parse(readData.GetValue(0).ToString()); //store the id 
 
             }
 
             con.Close();
             return idOfPatient;
         }
-        public bool isThereAppointment()
+        public int appointmentID() //this method is used to get the appointmentID based on the patientID that was queried based on the email address
         {
+            int idOfPatient =  patientID();
+            int idOfPatientApp = -1;
+            con = new MySqlConnection(connection);
+            con.Open();
+            cmd = new MySqlCommand("SELECT appointmentID FROM Appointment WHERE patientID='" + idOfPatient + "' ORDER BY appointmentID DESC", con);
+            readData = cmd.ExecuteReader();
+            while (readData.Read())
+            {
+                idOfPatientApp = int.Parse(readData.GetValue(0).ToString());  //store the appointmentID
+
+            }
+
+            con.Close();
+            return idOfPatientApp;
+        }
+        public bool isThereAppointment() //this is the first method that is used to maintain the child entity of the Patient table by checking if there exist appointments made by the Patient
+        {
+            int id = patientID();
             con = new MySqlConnection(connection);
             con.Open();
             cmd = new MySqlCommand("SELECT patientID FROM Appointment", con);
-            readData = cmd.ExecuteReader();     // Here our query will be executed and data saved into the database.
+            readData = cmd.ExecuteReader();     
             while (readData.Read())
             {
-                if (readData[0].ToString() == patientID(email).ToString())
+                if (readData[0].ToString() == id.ToString()) 
                 {
-                    return true; //if the email alreay exist then it is not a valid email to be used
+                    return true; 
                 }
             }
-
             con.Close();
             return false;
         }
-        public bool isThereFeedback()
+        public bool isThereFeedback() //this is the second method that is used to maintain the child entity of the patient table by checking if the exist feedback made by the Patient
         {
-            
+            int id = patientID();
             con = new MySqlConnection(connection);
             con.Open();
             cmd = new MySqlCommand("SELECT patientID FROM Feedback", con);
-            readData = cmd.ExecuteReader();     // Here our query will be executed and data saved into the database.
+            readData = cmd.ExecuteReader();    
             while (readData.Read())
             {
-                if (readData[0].ToString() == patientID(email).ToString())
+                if (readData[0].ToString() == id.ToString())
                 {
-                    return true; //if the email alreay exist then it is not a valid email to be used
+                    return true; 
                 }
             }
 
             con.Close();
             return false;
         }
-        public bool isTherePatientRecord()
+        public bool isTherePatientRecord() //this is the third method that is used to maintain the child entity of the patient table by checking if the exist feedback made by the Patient
         {
-            
+            int id = appointmentID();
             con = new MySqlConnection(connection);
             con.Open();
-            cmd = new MySqlCommand("SELECT patientID FROM patient_record", con);
-            readData = cmd.ExecuteReader();     // Here our query will be executed and data saved into the database.
+            cmd = new MySqlCommand("SELECT appointmentID FROM Patient_Record", con);
+            readData = cmd.ExecuteReader(); 
             while (readData.Read())
             {
-                if (readData[0].ToString() == patientID(email).ToString())
+                if (readData[0].ToString() == id.ToString())
                 {
-                    return true; //if the email alreay exist then it is not a valid email to be used
+                    return true; 
                 }
             }
 
@@ -110,17 +127,18 @@ namespace CMPG223DEMO
         public string rfi()// this method returns an error if there exist data for patientId in other tables 
         {
             string message = "";
-            if (isThereAppointment() == true)
+            if (isTherePatientRecord() == true)
+            {
+                message = "there exist data in the patient_record table made for this email, please delete the patient_record first before you delete this your data here";
+            }
+            else if (isThereAppointment() == true)
             {
                 message = "there exist records for Appoitment made with this email, please delete the email first before you delete this patient record";
             }else if (isThereFeedback() == true)
             {
                 message = "there exist records for feedback made with this email, please delete the feedback record before you delete this patient record";
             }
-            else if (isTherePatientRecord() == true)
-            {
-                message = "there exist records for patient record made with this email, please delete the patient_record record before you delete this patient record";
-            }
+          
             return message;
         }
         public string validateAdditionalInfo()
@@ -171,8 +189,6 @@ namespace CMPG223DEMO
 
         public override void delete()
         {
-
-
             con = new MySqlConnection(connection);
             con.Open();
             cmd = new MySqlCommand("DELETE FROM Patient WHERE email='" + email + "'", con);

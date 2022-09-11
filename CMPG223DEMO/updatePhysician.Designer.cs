@@ -48,6 +48,7 @@ namespace CMPG223DEMO
             // emailNeededToUpdate
             // 
             this.emailNeededToUpdate.Location = new System.Drawing.Point(204, 67);
+            this.emailNeededToUpdate.MaxLength = 100;
             this.emailNeededToUpdate.Name = "emailNeededToUpdate";
             this.emailNeededToUpdate.Size = new System.Drawing.Size(180, 26);
             this.emailNeededToUpdate.TabIndex = 52;
@@ -68,7 +69,7 @@ namespace CMPG223DEMO
             this.label6.ForeColor = System.Drawing.Color.Sienna;
             this.label6.Location = new System.Drawing.Point(45, 20);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(287, 32);
+            this.label6.Size = new System.Drawing.Size(286, 32);
             this.label6.TabIndex = 50;
             this.label6.Text = "Change your details";
             // 
@@ -84,6 +85,7 @@ namespace CMPG223DEMO
             // descrButton
             // 
             this.descrButton.Location = new System.Drawing.Point(204, 324);
+            this.descrButton.MaxLength = 300;
             this.descrButton.Name = "descrButton";
             this.descrButton.Size = new System.Drawing.Size(180, 26);
             this.descrButton.TabIndex = 48;
@@ -127,6 +129,7 @@ namespace CMPG223DEMO
             // contactNumberButton
             // 
             this.contactNumberButton.Location = new System.Drawing.Point(204, 217);
+            this.contactNumberButton.MaxLength = 50;
             this.contactNumberButton.Name = "contactNumberButton";
             this.contactNumberButton.Size = new System.Drawing.Size(180, 26);
             this.contactNumberButton.TabIndex = 43;
@@ -134,6 +137,7 @@ namespace CMPG223DEMO
             // emailButtom
             // 
             this.emailButtom.Location = new System.Drawing.Point(204, 274);
+            this.emailButtom.MaxLength = 100;
             this.emailButtom.Name = "emailButtom";
             this.emailButtom.Size = new System.Drawing.Size(180, 26);
             this.emailButtom.TabIndex = 42;
@@ -141,6 +145,7 @@ namespace CMPG223DEMO
             // lastNameButton
             // 
             this.lastNameButton.Location = new System.Drawing.Point(204, 167);
+            this.lastNameButton.MaxLength = 80;
             this.lastNameButton.Name = "lastNameButton";
             this.lastNameButton.Size = new System.Drawing.Size(180, 26);
             this.lastNameButton.TabIndex = 41;
@@ -148,6 +153,7 @@ namespace CMPG223DEMO
             // firstNameButton
             // 
             this.firstNameButton.Location = new System.Drawing.Point(204, 111);
+            this.firstNameButton.MaxLength = 80;
             this.firstNameButton.Name = "firstNameButton";
             this.firstNameButton.Size = new System.Drawing.Size(180, 26);
             this.firstNameButton.TabIndex = 40;
@@ -168,6 +174,7 @@ namespace CMPG223DEMO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(404, 461);
             this.Controls.Add(this.emailNeededToUpdate);
@@ -184,6 +191,8 @@ namespace CMPG223DEMO
             this.Controls.Add(this.lastNameButton);
             this.Controls.Add(this.firstNameButton);
             this.Controls.Add(this.update);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximumSize = new System.Drawing.Size(430, 521);
             this.Name = "updatePhysician";
             this.Text = "updatePhysician";
             this.ResumeLayout(false);

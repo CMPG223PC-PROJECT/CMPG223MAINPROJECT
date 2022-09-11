@@ -31,7 +31,6 @@ namespace CMPG223DEMO
         {
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.timee = new System.Windows.Forms.TextBox();
-            this.descr = new System.Windows.Forms.TextBox();
             this.dayy = new System.Windows.Forms.TextBox();
             this.emailTocheck = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,13 +46,14 @@ namespace CMPG223DEMO
             this.delete = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.descr = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(250, 285);
+            this.comboBox1.Location = new System.Drawing.Point(250, 355);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(197, 28);
             this.comboBox1.TabIndex = 0;
@@ -64,13 +64,6 @@ namespace CMPG223DEMO
             this.timee.Name = "timee";
             this.timee.Size = new System.Drawing.Size(197, 26);
             this.timee.TabIndex = 4;
-            // 
-            // descr
-            // 
-            this.descr.Location = new System.Drawing.Point(242, 228);
-            this.descr.Name = "descr";
-            this.descr.Size = new System.Drawing.Size(197, 26);
-            this.descr.TabIndex = 5;
             // 
             // dayy
             // 
@@ -83,6 +76,7 @@ namespace CMPG223DEMO
             // emailTocheck
             // 
             this.emailTocheck.Location = new System.Drawing.Point(242, 120);
+            this.emailTocheck.MaxLength = 100;
             this.emailTocheck.Name = "emailTocheck";
             this.emailTocheck.Size = new System.Drawing.Size(197, 26);
             this.emailTocheck.TabIndex = 7;
@@ -92,49 +86,49 @@ namespace CMPG223DEMO
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(193, 20);
+            this.label1.Size = new System.Drawing.Size(199, 20);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Available best time for you";
+            this.label1.Text = "Available best time for you*";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 126);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 20);
+            this.label2.Size = new System.Drawing.Size(190, 20);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Enter your email address";
+            this.label2.Text = "Enter your email address*";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 234);
+            this.label3.Location = new System.Drawing.Point(17, 225);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(160, 20);
+            this.label3.Size = new System.Drawing.Size(162, 20);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Enter the describtion ";
+            this.label3.Text = "Enter the describtion*";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 293);
+            this.label4.Location = new System.Drawing.Point(15, 363);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(221, 20);
+            this.label4.Size = new System.Drawing.Size(227, 20);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Choose an available Physician";
+            this.label4.Text = "Choose an available Physician*";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 179);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(195, 20);
+            this.label5.Size = new System.Drawing.Size(201, 20);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Available best date for you";
+            this.label5.Text = "Available best date for you*";
             // 
             // insert
             // 
-            this.insert.Location = new System.Drawing.Point(16, 332);
+            this.insert.Location = new System.Drawing.Point(16, 400);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(423, 48);
             this.insert.TabIndex = 13;
@@ -148,13 +142,13 @@ namespace CMPG223DEMO
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(60, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(264, 32);
+            this.label6.Size = new System.Drawing.Size(263, 32);
             this.label6.TabIndex = 14;
             this.label6.Text = "Appointment Form";
             // 
             // PatientF
             // 
-            this.PatientF.Location = new System.Drawing.Point(21, 399);
+            this.PatientF.Location = new System.Drawing.Point(25, 467);
             this.PatientF.Name = "PatientF";
             this.PatientF.Size = new System.Drawing.Size(418, 37);
             this.PatientF.TabIndex = 44;
@@ -165,22 +159,23 @@ namespace CMPG223DEMO
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 579);
+            this.label8.Location = new System.Drawing.Point(8, 654);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(291, 20);
+            this.label8.Size = new System.Drawing.Size(278, 20);
             this.label8.TabIndex = 43;
-            this.label8.Text = "enter email to view, and delete all datails";
+            this.label8.Text = "enter email to view, and delete datails*";
             // 
             // emailView
             // 
-            this.emailView.Location = new System.Drawing.Point(299, 573);
+            this.emailView.Location = new System.Drawing.Point(291, 651);
+            this.emailView.MaxLength = 100;
             this.emailView.Name = "emailView";
             this.emailView.Size = new System.Drawing.Size(148, 26);
             this.emailView.TabIndex = 42;
             // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(240, 620);
+            this.delete.Location = new System.Drawing.Point(236, 683);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(207, 44);
             this.delete.TabIndex = 41;
@@ -190,7 +185,7 @@ namespace CMPG223DEMO
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 620);
+            this.button1.Location = new System.Drawing.Point(16, 683);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(208, 44);
             this.button1.TabIndex = 39;
@@ -202,19 +197,30 @@ namespace CMPG223DEMO
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 451);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 519);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(431, 116);
             this.dataGridView1.TabIndex = 38;
             // 
+            // descr
+            // 
+            this.descr.Location = new System.Drawing.Point(245, 220);
+            this.descr.MaxLength = 300;
+            this.descr.Name = "descr";
+            this.descr.Size = new System.Drawing.Size(197, 129);
+            this.descr.TabIndex = 45;
+            this.descr.Text = "";
+            // 
             // Appoitment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(454, 676);
+            this.ClientSize = new System.Drawing.Size(454, 736);
+            this.Controls.Add(this.descr);
             this.Controls.Add(this.PatientF);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.emailView);
@@ -230,11 +236,11 @@ namespace CMPG223DEMO
             this.Controls.Add(this.label1);
             this.Controls.Add(this.emailTocheck);
             this.Controls.Add(this.dayy);
-            this.Controls.Add(this.descr);
             this.Controls.Add(this.timee);
             this.Controls.Add(this.comboBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(480, 796);
             this.Name = "Appoitment";
             this.Text = "Appoitment";
             this.Load += new System.EventHandler(this.Appoitment_Load);
@@ -248,7 +254,6 @@ namespace CMPG223DEMO
 
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox timee;
-        private System.Windows.Forms.TextBox descr;
         private System.Windows.Forms.TextBox dayy;
         private System.Windows.Forms.TextBox emailTocheck;
         private System.Windows.Forms.Label label1;
@@ -264,5 +269,6 @@ namespace CMPG223DEMO
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.RichTextBox descr;
     }
 }
