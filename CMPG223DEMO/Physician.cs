@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SqlClient;
-using MySql.Data;
+﻿using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using System.Text.RegularExpressions;
-using System.Net.Mail;
 
 
 namespace CMPG223DEMO
@@ -115,5 +103,23 @@ namespace CMPG223DEMO
 
         }
 
+        public int physicianID(string firstNameOfPhysician)
+        {
+            int idOfPhysician = -1;
+            con = new MySqlConnection(connection);
+            con.Open();
+
+            cmd = new MySqlCommand("SELECT * FROM Physician WHERE firstName='" + firstNameOfPhysician + "'", con);
+            readData = cmd.ExecuteReader();
+            while (readData.Read())
+            {
+                idOfPhysician = int.Parse(readData.GetValue(0).ToString()); //loop through the values in the uniform_cart cart and save it
+
+            }
+            con.Close();
+            return idOfPhysician;
+
+        }
+       
     }
 }

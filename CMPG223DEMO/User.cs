@@ -30,6 +30,7 @@ namespace CMPG223DEMO
         public MySqlDataReader readData;
         public DataTable table;
         public MySqlDataAdapter adapter;
+        public DataSet ds;
         public string emailNeededToUpdate;
         public static Regex CreateValidEmailRegex()
         {

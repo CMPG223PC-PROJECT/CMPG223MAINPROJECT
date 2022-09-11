@@ -90,5 +90,32 @@ namespace CMPG223DEMO
                 MessageBox.Show("email does not exist in our database");
             }
         }
+
+        private void PatientF_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SignUpForm signUpForm = new SignUpForm();
+            signUpForm.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Medication medication = new Medication();
+            medication.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Patient_Records records = new Patient_Records();
+            records.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ReportForm reportForm = new ReportForm();
+            reportForm.ShowDialog();
+        }
     }
 }

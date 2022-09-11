@@ -52,6 +52,8 @@ namespace CMPG223DEMO
             this.emailView = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.PhysicianF = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.redirectFeedBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +65,7 @@ namespace CMPG223DEMO
             this.label6.ForeColor = System.Drawing.Color.Sienna;
             this.label6.Location = new System.Drawing.Point(81, 20);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(358, 32);
+            this.label6.Size = new System.Drawing.Size(357, 32);
             this.label6.TabIndex = 25;
             this.label6.Text = " PATIENT Sign Up FORM";
             // 
@@ -122,6 +124,7 @@ namespace CMPG223DEMO
             // contactNumberButton
             // 
             this.contactNumberButton.Location = new System.Drawing.Point(195, 257);
+            this.contactNumberButton.MaxLength = 50;
             this.contactNumberButton.Name = "contactNumberButton";
             this.contactNumberButton.Size = new System.Drawing.Size(180, 26);
             this.contactNumberButton.TabIndex = 18;
@@ -129,6 +132,7 @@ namespace CMPG223DEMO
             // emailButtom
             // 
             this.emailButtom.Location = new System.Drawing.Point(195, 314);
+            this.emailButtom.MaxLength = 100;
             this.emailButtom.Name = "emailButtom";
             this.emailButtom.Size = new System.Drawing.Size(180, 26);
             this.emailButtom.TabIndex = 17;
@@ -136,6 +140,7 @@ namespace CMPG223DEMO
             // lastNameButton
             // 
             this.lastNameButton.Location = new System.Drawing.Point(195, 207);
+            this.lastNameButton.MaxLength = 80;
             this.lastNameButton.Name = "lastNameButton";
             this.lastNameButton.Size = new System.Drawing.Size(180, 26);
             this.lastNameButton.TabIndex = 16;
@@ -143,6 +148,7 @@ namespace CMPG223DEMO
             // firstNameButton
             // 
             this.firstNameButton.Location = new System.Drawing.Point(195, 151);
+            this.firstNameButton.MaxLength = 80;
             this.firstNameButton.Name = "firstNameButton";
             this.firstNameButton.Size = new System.Drawing.Size(180, 26);
             this.firstNameButton.TabIndex = 15;
@@ -192,7 +198,7 @@ namespace CMPG223DEMO
             // 
             this.button1.Location = new System.Drawing.Point(12, 634);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(238, 44);
+            this.button1.Size = new System.Drawing.Size(155, 44);
             this.button1.TabIndex = 31;
             this.button1.Text = "View Details";
             this.button1.UseVisualStyleBackColor = true;
@@ -200,7 +206,7 @@ namespace CMPG223DEMO
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(404, 634);
+            this.button2.Location = new System.Drawing.Point(367, 634);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(182, 44);
             this.button2.TabIndex = 32;
@@ -210,9 +216,9 @@ namespace CMPG223DEMO
             // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(646, 634);
+            this.delete.Location = new System.Drawing.Point(555, 634);
             this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(242, 44);
+            this.delete.Size = new System.Drawing.Size(161, 44);
             this.delete.TabIndex = 33;
             this.delete.Text = "Delete detalis";
             this.delete.UseVisualStyleBackColor = true;
@@ -231,7 +237,8 @@ namespace CMPG223DEMO
             // 
             // emailView
             // 
-            this.emailView.Location = new System.Drawing.Point(226, 602);
+            this.emailView.Location = new System.Drawing.Point(367, 602);
+            this.emailView.MaxLength = 100;
             this.emailView.Name = "emailView";
             this.emailView.Size = new System.Drawing.Size(148, 26);
             this.emailView.TabIndex = 34;
@@ -241,9 +248,9 @@ namespace CMPG223DEMO
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(12, 605);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(208, 20);
+            this.label8.Size = new System.Drawing.Size(349, 20);
             this.label8.TabIndex = 35;
-            this.label8.Text = "enter email to view all details";
+            this.label8.Text = "enter email to view, delete, and update all datails";
             // 
             // PhysicianF
             // 
@@ -255,12 +262,35 @@ namespace CMPG223DEMO
             this.PhysicianF.UseVisualStyleBackColor = true;
             this.PhysicianF.Click += new System.EventHandler(this.PhysicianF_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(173, 634);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(186, 44);
+            this.button3.TabIndex = 37;
+            this.button3.Text = "Set up an Appointment";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // redirectFeedBack
+            // 
+            this.redirectFeedBack.Location = new System.Drawing.Point(722, 634);
+            this.redirectFeedBack.Name = "redirectFeedBack";
+            this.redirectFeedBack.Size = new System.Drawing.Size(161, 44);
+            this.redirectFeedBack.TabIndex = 38;
+            this.redirectFeedBack.Text = "Provide feedback";
+            this.redirectFeedBack.UseVisualStyleBackColor = true;
+            this.redirectFeedBack.Click += new System.EventHandler(this.redirectFeedBack_Click);
+            // 
             // SignUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(905, 761);
+            this.Controls.Add(this.redirectFeedBack);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.PhysicianF);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.emailView);
@@ -283,7 +313,9 @@ namespace CMPG223DEMO
             this.Controls.Add(this.lastNameButton);
             this.Controls.Add(this.firstNameButton);
             this.Controls.Add(this.SignUp);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(931, 821);
             this.Name = "SignUpForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = resources.GetString("$this.Text");
@@ -317,6 +349,8 @@ namespace CMPG223DEMO
         private System.Windows.Forms.TextBox emailView;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button PhysicianF;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button redirectFeedBack;
     }
 }
 

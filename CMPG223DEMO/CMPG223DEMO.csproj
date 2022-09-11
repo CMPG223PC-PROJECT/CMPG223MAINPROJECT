@@ -12,6 +12,23 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\ngwen\OneDrive\Desktop\CMPG223PROECTFILES\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>http://localhost/CMPG223DEMO/</UpdateUrl>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +48,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>5D176CD4F703148DB3219E6784AB012BDBA8B3B5</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>CMPG223DEMO_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
@@ -89,16 +118,46 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appoitment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Appoitment.Designer.cs">
+      <DependentUpon>Appoitment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="feedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="feedback.Designer.cs">
+      <DependentUpon>feedback.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Medication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medication.Designer.cs">
+      <DependentUpon>Medication.cs</DependentUpon>
+    </Compile>
     <Compile Include="Patient.cs" />
+    <Compile Include="Patient_Records.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Patient_Records.Designer.cs">
+      <DependentUpon>Patient_Records.cs</DependentUpon>
+    </Compile>
     <Compile Include="Physician.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SignIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +170,18 @@
     <Compile Include="SignUpPhysician.Designer.cs">
       <DependentUpon>SignUpPhysician.cs</DependentUpon>
     </Compile>
+    <Compile Include="updateMedication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateMedication.Designer.cs">
+      <DependentUpon>updateMedication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updatePatientRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updatePatientRecord.Designer.cs">
+      <DependentUpon>updatePatientRecord.cs</DependentUpon>
+    </Compile>
     <Compile Include="updatePhysician.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,8 +189,26 @@
       <DependentUpon>updatePhysician.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <Compile Include="UserHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserHelp.Designer.cs">
+      <DependentUpon>UserHelp.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Appoitment.resx">
+      <DependentUpon>Appoitment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="feedback.resx">
+      <DependentUpon>feedback.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Medication.resx">
+      <DependentUpon>Medication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patient_Records.resx">
+      <DependentUpon>Patient_Records.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -130,15 +219,28 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignUpPhysician.resx">
       <DependentUpon>SignUpPhysician.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="updateMedication.resx">
+      <DependentUpon>updateMedication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updatePatientRecord.resx">
+      <DependentUpon>updatePatientRecord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="updatePhysician.resx">
       <DependentUpon>updatePhysician.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserHelp.resx">
+      <DependentUpon>UserHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="CMPG223DEMO_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -152,6 +254,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

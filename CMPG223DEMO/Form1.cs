@@ -72,25 +72,30 @@ namespace CMPG223DEMO
         {
             viewDetails();
         }
+      
 
         private void delete_Click(object sender, EventArgs e)
         {
             patient.email = emailView.Text;
-            
-            if(patient.isValidEmail(emailView.Text) == false)
+
+            if (patient.patientID() == -1)
             {
-                patient.delete();
-                this.Close();
+                MessageBox.Show("email does not exist in our database");
+            }
+            else if (patient.rfi() !="")
+            {
+                MessageBox.Show(patient.rfi());
             }
             else
             {
-                MessageBox.Show("email does not exist in our database");
+                patient.delete();
+               
             }
             
             
 
         }
-
+      
         private void button2_Click(object sender, EventArgs e)
         {
             patient.email = emailView.Text;
@@ -116,6 +121,20 @@ namespace CMPG223DEMO
             rd.ShowDialog();
             
            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Appoitment appoitment = new Appoitment();
+            appoitment.ShowDialog();
+        }
+
+        private void redirectFeedBack_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            feedback feedback = new feedback();
+            feedback.ShowDialog();
         }
     }
 }
