@@ -100,14 +100,12 @@ namespace CMPG223DEMO
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Medication medication = new Medication();
             medication.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Patient_Records records = new Patient_Records();
             records.ShowDialog();
         }
