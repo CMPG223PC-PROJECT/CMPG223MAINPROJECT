@@ -132,7 +132,6 @@ namespace CMPG223DEMO
 
         private void redirectFeedBack_Click(object sender, EventArgs e)
         {
-            //this.Hide();
             feedback feedback = new feedback();
             feedback.ShowDialog();
         }
